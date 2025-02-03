@@ -5,5 +5,7 @@ C:\Users\lotte6\Desktop\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.cor
 \ch01\src\main\java
 C:\Users\lotte6\Desktop\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2377262209.index
 \ch02\src\main\java
+C:\Users\lotte6\Desktop\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\783064898.index
+\ch02\src\main\java
 C:\Users\lotte6\Desktop\workspace\jsp\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3093271250.index
 \ch01\src\main\java
