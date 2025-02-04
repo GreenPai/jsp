@@ -1,7 +1,7 @@
 package com.ssamz.web.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 public interface Controller {
 	String handleRequest(HttpServletRequest request, HttpServletResponse response);

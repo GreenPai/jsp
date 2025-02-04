@@ -13,7 +13,6 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-// VO(Value Object) 클래스
 public class BoardVO {
 	private int seq;
 	private String title;
@@ -22,7 +21,7 @@ public class BoardVO {
 	private Date regDate;
 	private int cnt;
 	
-	// 검색 관련 변수
+
 	private String searchCondition;
 	private String searchKeyword;
 

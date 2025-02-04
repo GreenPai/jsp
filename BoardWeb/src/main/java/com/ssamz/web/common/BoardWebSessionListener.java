@@ -1,25 +1,25 @@
 package com.ssamz.web.common;
 
-import javax.servlet.annotation.WebListener;
-import javax.servlet.http.HttpSessionAttributeListener;
-import javax.servlet.http.HttpSessionBindingEvent;
+import jakarta.servlet.annotation.WebListener;
+import jakarta.servlet.http.HttpSessionAttributeListener;
+import jakarta.servlet.http.HttpSessionBindingEvent;
 
 @WebListener
 public class BoardWebSessionListener implements HttpSessionAttributeListener {
 
 	public BoardWebSessionListener() {
-		System.out.println("===> BoardWebSessionListener 생성");
+		System.out.println("===> BoardWebSessionListener ");
 	}
 
 	public void attributeAdded(HttpSessionBindingEvent event) {
-		System.out.println("---> 세션에 정보를 등록함");
+		System.out.println("---> ");
 	}
 
 	public void attributeReplaced(HttpSessionBindingEvent event) {
-		System.out.println("---> 세션에 등록된 정보를 덮어씀");
+		System.out.println("---> ");
 	}
 
 	public void attributeRemoved(HttpSessionBindingEvent event) {
-		System.out.println("---> 세션에 등록된 정보가 삭제됨");
+		System.out.println("---> ");
 	}
 }

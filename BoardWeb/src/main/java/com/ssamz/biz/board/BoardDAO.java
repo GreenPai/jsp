@@ -9,28 +9,27 @@ import java.util.List;
 
 import com.ssamz.biz.common.JDBCUtil;
 
-// DAO(Data Access Object) 클래스
+// DAO(Data Access Object) 
 public class BoardDAO {
-	// JDBC 관련 변수
+
 	private Connection conn;
 	private PreparedStatement stmt;
 	private ResultSet rs;
 	
-	// SQL 명령어
+
 	private static String BOARD_INSERT = "insert into board(seq, title, writer, content) " + 
             							 "values ((select nvl(max(seq), 0) + 1 from board), ?, ?, ?)";
 	private static String BOARD_UPDATE = "update board set title=?, content=? where seq=?";
 	private static String BOARD_DELETE = "delete board where seq=?";
 	private static String BOARD_GET    = "select * from board where seq=?";
 	private static String BOARD_LIST   = "select * from board order by seq desc";
-	// 검색 관련 쿼리
+
 	private static String BOARD_LIST_T = 
 		"select * from board where title like '%'||?||'%' order by seq desc";
 	private static String BOARD_LIST_C = 
 		"select * from board where content like '%'||?||'%' order by seq desc";
 
-	// CRUD 기능의 메소드
-	// 글 등록
+
 	public void insertBoard(BoardVO vo) {
 		try {
 			conn = JDBCUtil.getConnection();
@@ -46,7 +45,7 @@ public class BoardDAO {
 		}
 	}
 	
-	// 글 수정
+
 	public void updateBoard(BoardVO vo) {
 		try {
 			conn = JDBCUtil.getConnection();
@@ -62,7 +61,7 @@ public class BoardDAO {
 		}
 	}
 	
-	// 글 삭제
+
 	public void deleteBoard(BoardVO vo) {
 		try {
 			conn = JDBCUtil.getConnection();
@@ -76,7 +75,7 @@ public class BoardDAO {
 		}
 	}
 	
-	// 글 상세 조회
+
 	public BoardVO getBoard(BoardVO vo) {
 		BoardVO board = null;
 		try {
@@ -101,7 +100,7 @@ public class BoardDAO {
 		return board;
 	}
 	
-	// 글 목록 검색
+
 	public List<BoardVO> getBoardList(BoardVO vo) {
 		List<BoardVO> boardList = new ArrayList<BoardVO>();
 		try {

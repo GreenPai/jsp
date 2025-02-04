@@ -1,21 +1,21 @@
 package com.ssamz.web.common;
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import jakarta.servlet.ServletContextEvent;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
 
 @WebListener
 public class BoardWebContextListener implements ServletContextListener {
 
     public BoardWebContextListener() {
-    	System.out.println("===> BoardWebContextListener 생성");
+    	System.out.println("===> BoardWebContextListener ");
     }
 
     public void contextInitialized(ServletContextEvent sce)  { 
-    	System.out.println("---> ServletContxt 생성");
+    	System.out.println("---> ServletContxt");
     }	
     
     public void contextDestroyed(ServletContextEvent sce)  { 
-    	System.out.println("---> ServletContxt 삭제");
+    	System.out.println("---> ServletContxt");
     }
 }
