@@ -7,7 +7,7 @@
 	String date = request.getParameter("birth");
 	String gender = request.getParameter("gender");
 	String addr   = request.getParameter("addr");
-	String hobby = request.getParameter("hobby");
+	String[] hobbies = request.getParameterValues("hobby");
 
 %>
 <!DOCTYPE html>
@@ -25,9 +25,15 @@
 		생일: <%= date %> <br>
 		성별: <%= gender %> <br>
 		주소: <%= addr %> <br>
-		취미: <%= hobby %> <br>
-	
+		취미: 
+		 
+		<% 
+			for(String hobby : hobbies){
+			out.print(hobby + ", ");
+			}
+		%><br>
 	</p>
+	
 	
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -9,6 +10,18 @@
 		날짜 : 2025/02/04
 		이름 : 우상호
 		내용 : JSP 내장객체 request 실습하기
+		
+		request 내장객체 
+		 - 클라이언트의 요청 정보를 갖는 객체 
+		 - 클라이언트의 전송 데이터를 수신처리하기 위한 기능 제공(getParameter)
+		 
+		GET vs POST
+		 - GET  
+		 	- GET은 기본 데이터 전송 방식, 전송 데이터를 주소(URL)에 붙어 서버로 전송 
+		 	- GET은 전송 데이터가 노출되기 때문에 보안에 취약하지만 POST 전송보다 빠름
+		 - POST :
+		 	- 전송 데이터를 request 요청 객체 body에 저장해서 전송하는 방식
+		 	- 전송 데이터가 주소에 노출되지 않기 때문에 보안에 유리하고 대량의 데이터 전송에 적합 
 	 -->
 </head>
 <body>
@@ -87,5 +100,18 @@
 			
 		</table>
 	</form>
+	
+	<h4>request 기타정보</h4>
+	<p>
+		헤더정보#1 : <%= request.getHeader("User-Agent") %><br>
+		헤더정보#2 : <%= request.getHeader("referer") %><br>
+		헤더정보#3 : <%= request.getHeader("cookie") %><br>
+		프로토콜 : <%= request.getProtocol() %><br>
+		서버이름 : <%= request.getServerName() %><br>
+		요청주소 : <%= request.getRequestURL() %><br>
+		요청경로 : <%= request.getRequestURI() %><br>
+		IP주소 : <%= request.getRemoteAddr() %><br>
+	</p>
+	
 </body>
 </html>
