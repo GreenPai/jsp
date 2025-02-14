@@ -23,7 +23,6 @@ public class ListController extends HttpServlet{
 		
 		// 사용자 조회
 		List<User1DTO> dtos = service.findAllUser1();
-		System.out.println(dtos);
 		
 		// 데이터 공유(JSP에서 데이터를 출력하기 위해 request scope 저장)
 		req.setAttribute("dtos", dtos);
