@@ -25,7 +25,6 @@ public class TermsController extends HttpServlet {
 		
 		req.setAttribute("dto", dto);
 		
-		System.out.println(dto);
 		// View forward
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/user/terms.jsp");
 		dispatcher.forward(req, resp);
