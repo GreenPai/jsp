@@ -2,13 +2,18 @@ package kr.co.jboard.service;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import kr.co.jboard.dao.ArticleDAO;
 import kr.co.jboard.dto.ArticleDTO;
 
-public enum ArticleService {
+public enum ArticleService{
 
 	INSTANCE;
 	private ArticleDAO dao = ArticleDAO.getInstance();
+	
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	public void registerArticle(ArticleDTO dto) {
 		dao.insertArticle(dto);

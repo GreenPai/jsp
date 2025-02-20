@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 		<footer>
             <p>
                 <span class="copyright">Copyrightⓒ 김철학(개발에반하다.)</span>
