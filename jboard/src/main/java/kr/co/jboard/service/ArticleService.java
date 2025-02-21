@@ -12,11 +12,9 @@ public enum ArticleService{
 
 	INSTANCE;
 	private ArticleDAO dao = ArticleDAO.getInstance();
-	
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
-	
-	public void registerArticle(ArticleDTO dto) {
-		dao.insertArticle(dto);
+
+	public int registerArticle(ArticleDTO dto) {
+		return dao.insertArticle(dto);
 	}
 	
 	public ArticleDTO findArticle(int no) {

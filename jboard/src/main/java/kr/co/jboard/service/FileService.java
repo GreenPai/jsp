@@ -1,9 +1,13 @@
 package kr.co.jboard.service;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.http.HttpServletRequest;
@@ -17,6 +21,12 @@ public enum FileService {
 
 	INSTANCE;
 	private FileDAO dao = FileDAO.getInstance();
+	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
+	
+	public void insertFile(FileDTO dto) {
+		
+	}
+	
 	
 	public void registerFile(FileDTO dto) {
 		dao.insertFile(dto);
@@ -39,7 +49,9 @@ public enum FileService {
 	}
 	
 	// 파일 업로드 비즈니스 메서드
-	public void uploadFile(HttpServletRequest req) {
+	public List<FileDTO> uploadFile(HttpServletRequest req) {
+		
+		List<FileDTO> files = new ArrayList<>();
 		
 		// 업로드 경로 구하기
 		ServletContext ctx = req.getServletContext();
@@ -67,7 +79,14 @@ public enum FileService {
 					String sName = UUID.randomUUID().toString() + ext;
 					
 					// 파일 저장
-					part.write(uploadPath + File.separator + sName );					
+					part.write(uploadPath + File.separator + sName );
+					
+					// FileDTO 객체 생성
+					FileDTO dto = new FileDTO();
+					dto.setoName(oName);
+					dto.setsName(sName);				
+				
+					files.add(dto);
 				}
 				
 			}
@@ -75,6 +94,8 @@ public enum FileService {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		return files;
 		
 	}
 	
