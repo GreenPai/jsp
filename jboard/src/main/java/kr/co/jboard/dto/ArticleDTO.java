@@ -13,7 +13,16 @@ public class ArticleDTO {
 	private String regip;
 	private String wdate;
 	
-	//getter/setter
+	// 추가필드
+	private String nick;
+	
+	public String getNick() {
+		return nick;
+	}
+	public void setNick(String nick) {
+		this.nick = nick;
+	}
+	
 	public int getNo() {
 		return no;
 	}
@@ -38,6 +47,7 @@ public class ArticleDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
 	public int getComment() {
 		return comment;
 	}
@@ -69,20 +79,20 @@ public class ArticleDTO {
 		this.regip = regip;
 	}
 	public String getWdate() {
-		return wdate;
+		return wdate.substring(0, 10);
 	}
 	public void setWdate(String wdate) {
 		this.wdate = wdate;
 	}
 	
-	// toString
 	@Override
 	public String toString() {
-		return "ArticleDTO [no=" + no + ", cate=" + cate + ", title=" + title + ", content=" + content + ", comment="
-				+ comment + ", file=" + file + ", hit=" + hit + ", writer=" + writer + ", regip=" + regip + ", wdate="
-				+ wdate + "]";
+		return "ArticleDTO [no=" + no + ", cate=" + cate + ", title=" + title + ", content=" + content + ", file="
+				+ file + ", hit=" + hit + ", writer=" + writer + ", regip=" + regip + ", wdate=" + wdate + "]";
 	}
-
 	
-
+	
+	
+	
+	
 }

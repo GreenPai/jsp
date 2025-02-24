@@ -11,20 +11,17 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/article/modify.do")
 public class ModifyController extends HttpServlet {
-
-	
-	private static final long serialVersionUID = 123232232323L;
+	private static final long serialVersionUID = 1271261235653325736L;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		// View forward
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/article/modifylist.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/article/modify.jsp");
 		dispatcher.forward(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	}
-	
 }

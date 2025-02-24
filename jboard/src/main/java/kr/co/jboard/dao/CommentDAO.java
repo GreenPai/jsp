@@ -6,7 +6,6 @@ import kr.co.jboard.dto.CommentDTO;
 import kr.co.jboard.util.DBHelper;
 
 public class CommentDAO extends DBHelper {
-	
 	private static final CommentDAO INSTANCE = new CommentDAO();
 	public static CommentDAO getInstance() {
 		return INSTANCE;

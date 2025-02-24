@@ -10,13 +10,12 @@ import kr.co.jboard.util.DBHelper;
 import kr.co.jboard.util.SQL;
 
 public class FileDAO extends DBHelper {
-	
 	private static final FileDAO INSTANCE = new FileDAO();
 	public static FileDAO getInstance() {
 		return INSTANCE;
 	}
 	private FileDAO() {}
-	private Logger logger = LoggerFactory.getLogger(this.getClass()); 
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	public void insertFile(FileDTO dto) {
 		try {
@@ -27,10 +26,9 @@ public class FileDAO extends DBHelper {
 			psmt.setString(3, dto.getsName());
 			psmt.executeUpdate();
 			closeAll();
-		}catch(Exception e) {
+		}catch (Exception e) {
 			logger.error(e.getMessage());
 		}
-		
 	}
 	
 	public FileDTO selectFile(int fno) {
