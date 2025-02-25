@@ -401,7 +401,7 @@ footer > p > .version {
     float: right;
 }
 
-#article > .list > nav > form > input[name=search]{
+#article > .list > nav > form > input[name=keyword]{
     width: 200px;
     height: 26px;
     text-indent: 6px;
@@ -431,6 +431,16 @@ footer > p > .version {
     height: 40px;
     background: #e5ecef;
     border-bottom: 1px solid #d1dee2;
+}
+#article > .list > table tr > th:nth-child(2) {
+	width: 250px;
+}
+#article > .list > table tr > th:nth-child(3) {
+	width: 100px;
+}
+
+#article > .list > table tr > th:nth-child(5) {
+	width: 100px;
 }
 #article > .list > table tr > td {
     width: auto;
@@ -688,5 +698,3 @@ footer > p > .version {
 .btnWithdraw {
     padding: 5px; background: #ed2f2f; color:#fff;
 }
-
-
