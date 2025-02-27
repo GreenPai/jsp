@@ -36,7 +36,6 @@ public class ViewController extends HttpServlet {
 		req.setAttribute("articleDTO", articleDTO);
 		req.setAttribute("comments", comments);
 	
-		
 		// View forward
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/article/view.jsp");
 		dispatcher.forward(req, resp);

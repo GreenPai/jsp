@@ -1,10 +1,6 @@
 package kr.co.jboard.dao;
 
-<<<<<<< HEAD
-import java.sql.PreparedStatement;
 import java.sql.Statement;
-=======
->>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,52 +13,37 @@ import kr.co.jboard.util.SQL;
 
 public class CommentDAO extends DBHelper {
 	private static final CommentDAO INSTANCE = new CommentDAO();
-	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	public static CommentDAO getInstance() {
 		return INSTANCE;
 	}
 	private CommentDAO() {}
 	
-	public int insertComment(CommentDTO dto) {
-		
-<<<<<<< HEAD
-		int generateKey = 0;
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
+	
+	public int insertComment(CommentDTO dto) {	
+		int generatedKey = 0;
 		
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.INSERT_COMMENT, Statement.RETURN_GENERATED_KEYS);
-=======
-		try {
-			conn = getConnection();
-			psmt = conn.prepareStatement(SQL.INSERT_COMMENT);
->>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 			psmt.setInt(1, dto.getParent());
 			psmt.setString(2, dto.getContent());
 			psmt.setString(3, dto.getWriter());
-			psmt.setString(4, dto.getRegip());		
-<<<<<<< HEAD
+			psmt.setString(4, dto.getRegip());
 			
 			psmt.executeUpdate();
 			
 			// 자동 생성된 댓글번호 조회
 			rs = psmt.getGeneratedKeys();
 			if(rs.next()) {
-				generateKey = rs.getInt(1);
-			}
+				generatedKey = rs.getInt(1);
+			}			
 			closeAll();
 			
-		}catch(Exception e) {
+		}catch (Exception e) {
 			logger.error(e.getMessage());
 		}
-		
-		return generateKey;
-=======
-			psmt.executeUpdate();
-			closeAll();
-		}catch(Exception e) {
-			logger.error(e.getMessage());
-		}
->>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
+		return generatedKey;
 	}
 	
 	public CommentDTO selectComment(int cno) {
@@ -83,11 +64,11 @@ public class CommentDAO extends DBHelper {
 				dto.setContent(rs.getString(3));
 				dto.setWriter(rs.getString(4));
 				dto.setRegip(rs.getString(5));
-				dto.setWdate(rs.getString(6).substring(0,10));
+				dto.setWdate(rs.getString(6).substring(0, 10));
 				dto.setNick(rs.getString(7));
 			}
-			
-		}catch(Exception e) {
+			closeAll();
+		}catch (Exception e) {
 			logger.error(e.getMessage());
 		}
 		return dto;
@@ -95,7 +76,7 @@ public class CommentDAO extends DBHelper {
 	
 	public List<CommentDTO> selectAllComment(String parent) {
 		
-		List<CommentDTO> comments = new ArrayList<>();
+		List<CommentDTO> comments = new ArrayList<CommentDTO>();
 		
 		try {
 			conn = getConnection();
@@ -103,6 +84,7 @@ public class CommentDAO extends DBHelper {
 			psmt.setString(1, parent);
 			
 			rs = psmt.executeQuery();
+			
 			while(rs.next()) {
 				CommentDTO dto = new CommentDTO();
 				dto.setCno(rs.getInt(1));
@@ -110,16 +92,14 @@ public class CommentDAO extends DBHelper {
 				dto.setContent(rs.getString(3));
 				dto.setWriter(rs.getString(4));
 				dto.setRegip(rs.getString(5));
-				dto.setWdate(rs.getString(6).substring(0,10));
+				dto.setWdate(rs.getString(6).substring(0, 10));
 				dto.setNick(rs.getString(7));
 				comments.add(dto);
 			}
 			closeAll();
-			
-		}catch(Exception e) {
+		}catch (Exception e) {
 			logger.error(e.getMessage());
 		}
-		
 		return comments;
 	}
 	
@@ -130,5 +110,4 @@ public class CommentDAO extends DBHelper {
 	public void deleteComment(int cno) {
 		
 	}
-	
 }
