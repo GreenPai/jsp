@@ -15,7 +15,7 @@ public enum ArticleService {
 		return dao.insertArticle(dto);
 	}
 	
-	public ArticleDTO findArticle(int no) {
+	public ArticleDTO findArticle(String no) {
 		return dao.selectArticle(no);
 	}
 	
@@ -39,7 +39,7 @@ public enum ArticleService {
 		dao.updateArticle(dto);
 	}
 	
-	public void deleteArticle(int no) {
+	public void deleteArticle(String no) {
 		dao.deleteArticle(no);
 	}
 	
