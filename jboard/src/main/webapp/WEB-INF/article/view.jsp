@@ -128,7 +128,11 @@
                 <!-- 댓글쓰기 -->
                 <section class="commentForm">
                     <h3>댓글쓰기</h3>
+<<<<<<< HEAD
                     <form name="formComment"  action="#" method="post">
+=======
+                    <form action="/jboard/comment/write.do" method="post">
+>>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
                     	<input type="hidden" name="parent" value="${articleDTO.no}">
                     	<input type="hidden" name="writer" value="${sessUser.uid}">
                         <textarea name="content" placeholder="댓글 입력"></textarea>

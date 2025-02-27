@@ -1,7 +1,10 @@
 package kr.co.jboard.dao;
 
+<<<<<<< HEAD
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+=======
+>>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,15 +25,22 @@ public class CommentDAO extends DBHelper {
 	
 	public int insertComment(CommentDTO dto) {
 		
+<<<<<<< HEAD
 		int generateKey = 0;
 		
 		try {
 			conn = getConnection();
 			psmt = conn.prepareStatement(SQL.INSERT_COMMENT, Statement.RETURN_GENERATED_KEYS);
+=======
+		try {
+			conn = getConnection();
+			psmt = conn.prepareStatement(SQL.INSERT_COMMENT);
+>>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 			psmt.setInt(1, dto.getParent());
 			psmt.setString(2, dto.getContent());
 			psmt.setString(3, dto.getWriter());
 			psmt.setString(4, dto.getRegip());		
+<<<<<<< HEAD
 			
 			psmt.executeUpdate();
 			
@@ -46,6 +56,13 @@ public class CommentDAO extends DBHelper {
 		}
 		
 		return generateKey;
+=======
+			psmt.executeUpdate();
+			closeAll();
+		}catch(Exception e) {
+			logger.error(e.getMessage());
+		}
+>>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 	}
 	
 	public CommentDTO selectComment(int cno) {

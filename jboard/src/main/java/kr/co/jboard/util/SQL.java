@@ -102,6 +102,7 @@ public class SQL {
 																+ "JOIN `user` AS u ON c.writer = u.uid "
 																+ "WHERE `parent` = ? "
 																+ "ORDER BY `cno` ASC";
+<<<<<<< HEAD
 
 	public static final String SELECT_COMMENT_BY_CNO = "SELECT "
 													+ "c.*, "
@@ -111,6 +112,8 @@ public class SQL {
 													+ "WHERE `cno` = ? ";
 										
 
+=======
+>>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 	
 	
 

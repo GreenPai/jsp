@@ -1,6 +1,7 @@
 package kr.co.jboard.controller.comment;
 
 import java.io.IOException;
+<<<<<<< HEAD
 import java.io.PrintWriter;
 
 import org.slf4j.Logger;
@@ -8,6 +9,8 @@ import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+=======
+>>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -24,8 +27,11 @@ public class WriteController extends HttpServlet{
 
 	private static final long serialVersionUID = 1123123L;
 	private CommentService service = CommentService.INSTANCE;
+<<<<<<< HEAD
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
+=======
+>>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 	
@@ -34,7 +40,10 @@ public class WriteController extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<<<<<<< HEAD
 		
+=======
+>>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 		// 데이터 수신
 		String parent = req.getParameter("parent");
 		String content = req.getParameter("content");
@@ -51,6 +60,7 @@ public class WriteController extends HttpServlet{
 		dto.setRegip(regip);
 		
 		// 서비스 호출
+<<<<<<< HEAD
 		CommentDTO savedCommentDTO = service.registerComment(dto);
 		
 		// JSON 출력(Javascript fetch함수로 데이터를 전송할 때)
@@ -61,6 +71,13 @@ public class WriteController extends HttpServlet{
 		printWriter.println(json);
 		
 
+=======
+		service.registerComment(dto);
+		
+		// 리다이렉트 이동
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/jboard/article/view.do?no=" + parent);
+		resp.sendRedirect("/jboard/article/view.do?no="+parent);
+>>>>>>> 225ae82ad7d48243f53747d54b74f4d1d3f25302
 	}
 	
 }
