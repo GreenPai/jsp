@@ -29,6 +29,17 @@ public class SQL {
 	// article
 	public static final String SELECT_MAX_NO = "SELECT MAX(`no`) FROM `article`";
 	public static final String SELECT_COUNT_ARTICLE = "SELECT COUNT(*) FROM `article`";
+	public static final String SELECT_ARTICLE_WITH_FILE = "select "
+														+ "a.*,"
+														+ "f.*,"
+														+ "u.`nick` "
+														+ "FROM `article` AS a "
+														+ "left JOIN `file` AS f ON a.no = f.ano "
+														+ "JOIN `user` AS u ON a.writer = u.uid "
+														+ "where a.`no` = ?";
+	
+	public static final String DELETE_ARTICLE_BY_NO = "DELETE FROM `ARTICLE` WHERE `no` = ? ";
+	
 	public static final String SELECT_ALL_ARTICLE = "SELECT "
 													+ "a.*,"
 													+ "u.`nick` "
@@ -66,6 +77,35 @@ public class SQL {
 												+ "`oName`=?,"
 												+ "`sName`=?,"
 												+ "`rdate`=NOW()";
+
+	public static final String SELECT_FILE_BY_FNO = "select * from `file` where `fno` = ? ";
+
+	public static final String UPDATE_FILE_DOWNLOAD_COUNT = "UPDATE `file` SET `download` = `download` + 1 WHERE `fno` = ?";
+
+	public static final String DELETE_FILE_BY_FNO = "DELETE FROM `FILE` WHERE `ano` = ? ";
+
+	public static final String SELECT_FILE_BY_ANO = "SELECT `sName` FROM `FILE` WHERE `ano` = ? ";
+
+	
+	// comment
+	public static final String INSERT_COMMENT = "INSERT INTO `comment` set "
+												+ "`parent`=?,"
+												+ "`content`=?,"
+												+ "`writer`=?,"
+												+ "`regip`=?,"
+												+ "`wdate`=NOW()";
+
+	public static final String SELECT_ALL_COMMENT_BY_PARENT = "SELECT "
+																+ "c.*, "
+																+ "u.`nick` "
+																+ "FROM `comment` AS c "
+																+ "JOIN `user` AS u ON c.writer = u.uid "
+																+ "WHERE `parent` = ? "
+																+ "ORDER BY `cno` ASC";
+	
+	
+
+
 	
 	
 	

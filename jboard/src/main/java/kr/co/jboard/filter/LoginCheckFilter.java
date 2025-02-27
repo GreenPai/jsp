@@ -24,7 +24,7 @@ public class LoginCheckFilter implements Filter{
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain) throws IOException, ServletException {
 		
-		logger.debug("LoginCheckFilter...1");
+		//logger.debug("LoginCheckFilter...1");
 		
 		// 로그인 여부 검사
 		HttpServletRequest request =(HttpServletRequest) req;
@@ -34,17 +34,17 @@ public class LoginCheckFilter implements Filter{
 		
 		// 요청 URL 확인
 		String uri  = request.getRequestURI(); // /jboard/article/list.do
-		logger.debug("LoginCheckFilter...2 : " + uri);
+		// logger.debug("LoginCheckFilter...2 : " + uri);
 		
 		String ctxPath = request.getContextPath(); // /jboard
-		logger.debug("LoginCheckFilter...3 : " + ctxPath);
+		//logger.debug("LoginCheckFilter...3 : " + ctxPath);
 		
 		String path = uri.substring(ctxPath.length());
-		logger.debug("LoginCheckFilter...4 : " + path );
+		//logger.debug("LoginCheckFilter...4 : " + path );
 		
 		
 		
-		if(path.startsWith("/user") && !path.contains("logout.do")) {
+		if(path.startsWith("/user") && !path.contains("logout.do") && !path.contains("info.do") ) {
 			// 로그인하고 /user/* 요청일 때
 			if(userDTO != null) {
 				// 로그인을 안했을 경우 로그인 페이지로 이동

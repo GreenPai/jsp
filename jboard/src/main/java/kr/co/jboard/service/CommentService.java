@@ -20,8 +20,8 @@ public enum CommentService {
 		return dao.selectComment(cno);
 	}
 	
-	public List<CommentDTO> findAllComment(){
-		return dao.selectAllComment();
+	public List<CommentDTO> findAllComment(String parent){
+		return dao.selectAllComment(parent);
 	}
 	
 	public void modifyComment(CommentDTO dto) {
